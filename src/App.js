@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Home } from './Home';
 import { About } from './About';
@@ -7,15 +7,19 @@ import { Galleries } from './Galleries';
 import { Contact } from './Contact';
 import { NoMatch } from './NoMatch';
 import { Layout } from './components/Layout';
-import { NavigationBar } from './components/NavigationBar'
+import { NavigationBar } from './components/NavigationBar';
+import { Jumbotron} from './components/Jumbotron';
+
 
 function App() {
   return (
     <React.Fragment>
-      
+      <Router>
+       <NavigationBar />
+       
+       <Jumbotron />
       <Layout>
-        <Router>
-        <NavigationBar />
+        
           <Switch>
             <Route exact path="/" component = {Home} />
             <Route exact path="/about" component = {About} />
@@ -25,8 +29,8 @@ function App() {
             <Route component = {NoMatch} />
 
           </Switch>
-        </Router>
       </Layout>
+      </Router>
     </React.Fragment>
   );
 }
